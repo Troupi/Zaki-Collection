@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zaki Collection — Elegance in Every Fold</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for minimal icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        seashell: '#FBF3F1',
+                        bubblegum: '#FF93B3',
+                        iris: '#BC99F3',
+                        wonderland: '#E7D2E5',
+                        maraschino: '#EE1C43',
+                        electricblue: '#0056BB',
+                        softdark: '#2D2727',
+                        softgray: '#7A7070'
+                    },
+                    fontFamily: {
+                        display: ['"Playfair Display"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FBF3F1;
+            color: #2D2727;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        h1, h2, h3, .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FBF3F1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #E7D2E5;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #BC99F3;
+        }
+    </style>
+</head>
+<body class="bg-seashell text-softdark antialiased selection:bg-bubblegum selection:text-white">
+    <!--
+        LOCAL IMAGE FILES:
+        Keep these JPG files in the SAME FOLDER as this HTML file:
+        - Logo.jpeg
+        - Bella.jpeg
+        - Bergo.jpeg
+        - Ceruty.jpeg
+    -->
+
+    <!-- Navigation Header -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-seashell/90 backdrop-blur-md border-b border-wonderland/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-11 h-11 rounded-full overflow-hidden bg-wonderland/40 border border-wonderland flex items-center justify-center shadow-sm">
+                    <img src="Logo.jpeg" alt="Zaki Collection Logo" class="w-full h-full object-contain" onerror="this.src='https://placehold.co/100x100/E7D2E5/2D2727?text=Z'">
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-display font-bold text-xl tracking-wide text-softdark">Zaki Collection</span>
+                    <span class="text-[10px] uppercase tracking-widest text-softgray -mt-1">Hijab Fashion</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-sm">
+                <a href="#about" class="text-softdark hover:text-bubblegum transition-colors">Tentang Kami</a>
+                <a href="#products" class="text-softdark hover:text-bubblegum transition-colors">Koleksi</a>
+                <a href="#contact" class="text-softdark hover:text-bubblegum transition-colors">Kontak</a>
+            </nav>
+
+            <!-- Right Utilities (Cart & Mobile Menu Toggle) -->
+            <div class="flex items-center gap-4">
+                <!-- Cart Button -->
+                <button onclick="toggleCart()" class="relative p-2.5 rounded-full bg-wonderland/50 hover:bg-wonderland transition-colors text-softdark flex items-center justify-center" aria-label="Shopping Cart">
+                    <i class="fa-solid fa-bag-shopping text-base"></i>
+                    <span id="cart-badge" class="absolute -top-1 -right-1 bg-maraschino text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-sm">0</span>
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2.5 rounded-full bg-wonderland/50 hover:bg-wonderland transition-colors text-softdark" aria-label="Toggle Menu">
+                    <i id="mobile-menu-icon" class="fa-solid fa-bars text-base"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-seashell border-b border-wonderland/60 px-6 py-6 space-y-4 shadow-lg">
+            <a href="#about" onclick="toggleMobileMenu()" class="block font-medium text-lg text-softdark hover:text-bubblegum">Tentang Kami</a>
+            <a href="#products" onclick="toggleMobileMenu()" class="block font-medium text-lg text-softdark hover:text-bubblegum">Koleksi</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block font-medium text-lg text-softdark hover:text-bubblegum">Kontak</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-gradient-to-b from-wonderland/30 via-seashell to-seashell">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-wonderland/60 text-softdark text-xs font-semibold tracking-wider uppercase">
+                        <span class="w-2 h-2 rounded-full bg-bubblegum"></span>
+                        Zaki Collection
+                    </div>
+                    <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-softdark leading-[1.15]">
+                        “Elegance in Every Fold”
+                    </h1>
+                    <p class="text-base sm:text-lg text-softgray max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        Zaki Collection menghadirkan koleksi hijab berkualitas tinggi dengan warna-warna lembut dan bahan yang nyaman untuk menyempurnakan keanggunan gaya harian Anda.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#products" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-bubblegum hover:bg-[#ff7d9e] text-white font-medium text-sm transition-all shadow-md shadow-bubblegum/20 text-center">
+                            Lihat Koleksi
+                        </a>
+                        <a href="#about" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-wonderland/60 hover:bg-wonderland text-softdark font-medium text-sm transition-all text-center">
+                            Tentang Kami
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Visual Editorial Card with Official Logo -->
+                <div class="lg:col-span-5 relative flex justify-center">
+                    <div class="relative w-full max-w-sm aspect-square rounded-3xl overflow-hidden shadow-xl shadow-wonderland/50 border-4 border-white bg-gradient-to-br from-seashell via-wonderland/40 to-iris/20 flex flex-col items-center justify-center p-8 text-center">
+                        <div class="w-28 h-28 rounded-2xl overflow-hidden bg-white shadow-md border border-wonderland/60 mb-4 flex items-center justify-center p-2">
+                            <img src="Logo.jpeg" alt="Zaki Collection Logo" class="w-full h-full object-contain" onerror="this.src='https://placehold.co/200x200/E7D2E5/2D2727?text=Zaki+Logo'">
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-softdark tracking-wide">Zaki Collection</h3>
+                        <p class="text-xs text-softgray mt-1 uppercase tracking-widest">Elegance in Every Fold</p>
+                    </div>
+                    <!-- Decorative soft glowing elements -->
+                    <div class="absolute -z-10 -top-10 -right-10 w-72 h-72 rounded-full bg-iris/20 blur-3xl"></div>
+                    <div class="absolute -z-10 -bottom-10 -left-10 w-72 h-72 rounded-full bg-bubblegum/20 blur-3xl"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story & Highlights Section -->
+    <section id="about" class="py-20 bg-white/60 border-y border-wonderland/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center space-y-4 mb-16">
+                <span class="text-xs uppercase tracking-widest text-iris font-bold">Kisah Kami</span>
+                <h2 class="font-display text-3xl sm:text-4xl font-bold text-softdark">Didesain untuk Kenyamanan & Keanggunan</h2>
+                <p class="text-softgray text-base leading-relaxed">
+                    Zaki Collection berfokus pada hijab yang nyaman, serbaguna, dan elegan untuk dikenakan setiap hari maupun di berbagai momen spesial. Kami percaya bahwa kepercayaan diri berawal dari kualitas dan kenyamanan bahan.
+                </p>
+            </div>
+
+            <!-- Value Highlights Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Highlight 1 -->
+                <div class="p-8 rounded-3xl bg-seashell border border-wonderland/50 text-center hover:shadow-lg hover:shadow-wonderland/30 transition-all group">
+                    <div class="w-14 h-14 mx-auto mb-6 rounded-2xl bg-wonderland flex items-center justify-center text-softdark group-hover:bg-bubblegum group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-feather text-xl"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-softdark mb-2">Nyaman & Sejuk</h3>
+                    <p class="text-sm text-softgray leading-relaxed">
+                        Material terpilih yang lembut dan ringan untuk kenyamanan sepanjang hari.
+                    </p>
+                </div>
+
+                <!-- Highlight 2 -->
+                <div class="p-8 rounded-3xl bg-seashell border border-wonderland/50 text-center hover:shadow-lg hover:shadow-wonderland/30 transition-all group">
+                    <div class="w-14 h-14 mx-auto mb-6 rounded-2xl bg-wonderland flex items-center justify-center text-softdark group-hover:bg-bubblegum group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-gem text-xl"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-softdark mb-2">Gaya Timeless</h3>
+                    <p class="text-sm text-softgray leading-relaxed">
+                        Desain klasik dan elegan yang tidak pernah lekang oleh waktu.
+                    </p>
+                </div>
+
+                <!-- Highlight 3 -->
+                <div class="p-8 rounded-3xl bg-seashell border border-wonderland/50 text-center hover:shadow-lg hover:shadow-wonderland/30 transition-all group">
+                    <div class="w-14 h-14 mx-auto mb-6 rounded-2xl bg-wonderland flex items-center justify-center text-softdark group-hover:bg-bubblegum group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-wand-magic-sparkles text-xl"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-softdark mb-2">Mudah Dibentuk</h3>
+                    <p class="text-sm text-softgray leading-relaxed">
+                        Mudah diatur dan tegak di dahi untuk tampilan rapi seketika.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Section -->
+    <section id="products" class="py-24 bg-seashell">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-xl mx-auto mb-12 space-y-3">
+                <span class="text-xs uppercase tracking-widest text-bubblegum font-bold">Koleksi Resmi</span>
+                <h2 class="font-display text-3xl sm:text-4xl font-bold text-softdark">Pilihan Produk Kami</h2>
+                <p class="text-softgray text-sm">Tiga koleksi unggulan pilihan terbaik Zaki Collection.</p>
+            </div>
+
+            <!-- Simple Filter Heading Toolbar -->
+            <div class="flex items-center justify-between pb-6 mb-10 border-b border-wonderland/60">
+                <div class="px-5 py-2 rounded-full text-xs font-semibold bg-softdark text-white shadow-sm">
+                    Semua Produk (3)
+                </div>
+                <div class="text-xs text-softgray">
+                    Menampilkan 3 produk eksklusif
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Dynamically populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-white/60 border-t border-wonderland/30">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-xl mx-auto mb-16 space-y-3">
+                <span class="text-xs uppercase tracking-widest text-iris font-bold">Hubungi Kami</span>
+                <h2 class="font-display text-3xl sm:text-4xl font-bold text-softdark">Tetap Terhubung</h2>
+                <p class="text-softgray text-sm leading-relaxed">
+                    Punya pertanyaan seputar produk atau pemesanan? Jangan ragu untuk menghubungi kami.
+                </p>
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-wonderland/50 text-softdark text-xs font-semibold mt-2">
+                    <i class="fa-solid fa-phone text-bubblegum"></i>
+                    <span>0852-8324-6623</span>
+                </div>
+            </div>
+
+            <!-- Contact Form Card -->
+            <div class="bg-seashell rounded-3xl p-8 sm:p-12 border border-wonderland/50 shadow-sm max-w-2xl mx-auto">
+                <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-6">
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-softdark mb-2">Nama</label>
+                        <input type="text" id="contact-name" required placeholder="Nama lengkap Anda" class="w-full px-5 py-3.5 rounded-2xl bg-white border border-wonderland focus:outline-none focus:border-bubblegum text-sm text-softdark transition-colors shadow-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-softdark mb-2">Email</label>
+                        <input type="email" id="contact-email" required placeholder="Alamat email Anda" class="w-full px-5 py-3.5 rounded-2xl bg-white border border-wonderland focus:outline-none focus:border-bubblegum text-sm text-softdark transition-colors shadow-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-softdark mb-2">Pesan</label>
+                        <textarea id="contact-message" required rows="4" placeholder="Tulis pesan atau pertanyaan Anda di sini..." class="w-full px-5 py-3.5 rounded-2xl bg-white border border-wonderland focus:outline-none focus:border-bubblegum text-sm text-softdark transition-colors shadow-sm resize-none"></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-4 rounded-full bg-bubblegum hover:bg-[#ff7d9e] text-white font-medium text-sm transition-all shadow-md shadow-bubblegum/20">
+                        Kirim Pesan
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-softdark text-seashell py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+                <!-- Col 1 -->
+                <div class="space-y-4 md:col-span-2">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full overflow-hidden bg-white/10 flex items-center justify-center border border-white/20">
+                            <img src="Logo.jpeg" alt="Zaki Collection Logo" class="w-full h-full object-contain">
+                        </div>
+                        <span class="font-display font-bold text-lg tracking-wide text-white">Zaki Collection</span>
+                    </div>
+                    <p class="text-xs text-wonderland/70 italic">“Elegance in Every Fold”</p>
+                    <p class="text-xs text-wonderland/80 max-w-sm leading-relaxed">
+                        Brand hijab fashion modern yang memadukan kesederhanaan, kenyamanan, dan gaya elegan untuk wanita aktif.
+                    </p>
+                </div>
+
+                <!-- Col 2: Navigation -->
+                <div class="space-y-3">
+                    <h4 class="text-xs font-bold uppercase tracking-widest text-bubblegum">Navigasi</h4>
+                    <ul class="space-y-2 text-xs text-wonderland/80">
+                        <li><a href="#about" class="hover:text-white transition-colors">Tentang Kami</a></li>
+                        <li><a href="#products" class="hover:text-white transition-colors">Koleksi</a></li>
+                        <li><a href="#contact" class="hover:text-white transition-colors">Kontak</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Contact & Socials -->
+                <div class="space-y-3">
+                    <h4 class="text-xs font-bold uppercase tracking-widest text-bubblegum">Hubungi</h4>
+                    <p class="text-xs text-wonderland/80">Telepon / WA: 0852-8324-6623</p>
+                    <div class="flex items-center gap-3 pt-2">
+                        <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-bubblegum flex items-center justify-center text-white transition-colors" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-bubblegum flex items-center justify-center text-white transition-colors" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-bubblegum flex items-center justify-center text-white transition-colors" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-white/10 text-center text-xs text-wonderland/60">
+                <p>© 2026 Zaki Collection. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Drawer Modal -->
+    <div id="cart-modal" class="fixed inset-0 z-50 overflow-hidden hidden">
+        <div class="absolute inset-0 bg-softdark/40 backdrop-blur-sm transition-opacity" onclick="toggleCart()"></div>
+        <div class="absolute inset-y-0 right-0 max-w-full flex pl-10">
+            <div class="w-screen max-w-md bg-seashell shadow-2xl flex flex-col">
+                <!-- Cart Header -->
+                <div class="px-6 py-6 border-b border-wonderland/50 flex items-center justify-between bg-white">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-bag-shopping text-bubblegum"></i>
+                        <h3 class="font-display font-bold text-lg text-softdark">Keranjang Belanja</h3>
+                    </div>
+                    <button onclick="toggleCart()" class="p-2 rounded-full hover:bg-wonderland/50 text-softdark transition-colors" aria-label="Close Cart">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
+                </div>
+
+                <!-- Cart Items Container -->
+                <div id="cart-items" class="flex-1 overflow-y-auto px-6 py-6 space-y-4">
+                    <!-- Populated by JS -->
+                </div>
+
+                <!-- Cart Footer & Checkout Summary -->
+                <div class="border-t border-wonderland/50 bg-white px-6 py-6 space-y-4">
+                    <div class="space-y-2 text-xs">
+                        <div class="flex justify-between text-softgray">
+                            <span>Subtotal</span>
+                            <span id="cart-subtotal" class="font-semibold text-softdark">Rp0</span>
+                        </div>
+                        <div class="flex justify-between text-softgray">
+                            <span>Estimasi Pengiriman</span>
+                            <span class="font-semibold text-softdark">Rp15.000</span>
+                        </div>
+                        <div class="flex justify-between text-sm font-bold text-softdark pt-2 border-t border-wonderland/40">
+                            <span>Total</span>
+                            <span id="cart-total" class="text-maraschino">Rp0</span>
+                        </div>
+                    </div>
+                    <button onclick="proceedToCheckout()" class="w-full py-3.5 rounded-full bg-bubblegum hover:bg-[#ff7d9e] text-white font-medium text-sm transition-all shadow-md shadow-bubblegum/20 text-center">
+                        Lanjut ke Pembayaran
+                    </button>
+                    <button onclick="toggleCart()" class="w-full py-2.5 rounded-full bg-wonderland/40 hover:bg-wonderland text-softdark font-medium text-xs transition-all text-center">
+                        Lanjut Belanja
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick View / Detail Modal -->
+    <div id="quickview-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden">
+        <div class="absolute inset-0 bg-softdark/40 backdrop-blur-sm transition-opacity" onclick="closeQuickView()"></div>
+        <div class="relative bg-seashell rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-wonderland/50 z-10 overflow-hidden max-h-[90vh] overflow-y-auto">
+            <button onclick="closeQuickView()" class="absolute top-4 right-4 p-2 rounded-full bg-wonderland/50 hover:bg-wonderland text-softdark transition-colors" aria-label="Close Quick View">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div id="quickview-content" class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-softdark text-seashell px-6 py-3 rounded-2xl shadow-xl transform translate-y-20 opacity-0 transition-all duration-300 text-xs font-medium flex items-center gap-3">
+        <i class="fa-solid fa-circle-check text-bubblegum"></i>
+        <span id="toast-message">Item berhasil ditambahkan ke keranjang.</span>
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // Exactly 3 official products database
+        const products = [
+            {
+                id: 1,
+                name: "Bella Square",
+                color: "Gray / Abu-abu",
+                price: 75000,
+                rating: 4.9,
+                reviews: 142,
+                colors: ["Abu-abu (Gray)", "Silver"],
+                image: "Bella.jpeg",
+                description: "Hijab segi empat Bella Square warna abu-abu yang ringan, tegak di dahi, dan sangat nyaman untuk penggunaan harian.",
+                featured: true
+            },
+            {
+                id: 2,
+                name: "Bergo Sport",
+                color: "Black / Hitam",
+                price: 65000,
+                rating: 4.8,
+                reviews: 98,
+                colors: ["Hitam (Black)"],
+                image: "Bergo.jpeg",
+                description: "Bergo sport praktis warna hitam, adem, dan sangat ideal untuk berolahraga maupun aktivitas kasual sehari-hari.",
+                featured: true
+            },
+            {
+                id: 3,
+                name: "Pashmina Ceruty",
+                color: "Brown / Coklat",
+                price: 95000,
+                rating: 5.0,
+                reviews: 215,
+                colors: ["Coklat (Brown)", "Milo", "Cream"],
+                image: "Ceruty.jpeg",
+                description: "Pashmina berbahan ceruty premium warna coklat yang jatuh sempurna, elegan, dan mudah dikreasikan untuk berbagai gaya.",
+                featured: true
+            }
+        ];
+
+        let cart = [];
+        let wishlist = [];
+
+        // Format currency to IDR
+        function formatIDR(amount) {
+            return "Rp" + amount.toLocaleString('id-ID');
+        }
+
+        // Initialize App on Load
+        window.addEventListener('DOMContentLoaded', () => {
+            renderProducts(products);
+            updateCartBadge();
+        });
+
+        // Toggle Mobile Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('mobile-menu-icon');
+            menu.classList.toggle('hidden');
+            if (menu.classList.contains('hidden')) {
+                icon.className = "fa-solid fa-bars text-base";
+            } else {
+                icon.className = "fa-solid fa-xmark text-base";
+            }
+        }
+
+        // Render Product Catalog Grid
+        function renderProducts(list) {
+            const grid = document.getElementById('product-grid');
+            if (list.length === 0) {
+                grid.innerHTML = `<div class="col-span-full text-center py-12 text-softgray text-sm">Tidak ada produk ditemukan.</div>`;
+                return;
+            }
+
+            grid.innerHTML = list.map(p => `
+                <div class="bg-white rounded-3xl p-4 border border-wonderland/50 shadow-sm hover:shadow-xl hover:shadow-wonderland/40 transition-all duration-300 flex flex-col group">
+                    <!-- Image Wrapper -->
+                    <div class="relative aspect-[4/5] rounded-2xl overflow-hidden bg-seashell mb-4">
+                        <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/400x500/FBF3F1/2D2727?text=${encodeURIComponent(p.name)}'">
+                        
+                        <!-- Wishlist button -->
+                        <button onclick="toggleWishlist(${p.id})" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-softdark hover:text-maraschino transition-colors shadow-sm" aria-label="Wishlist">
+                            <i class="${wishlist.includes(p.id) ? 'fa-solid text-maraschino' : 'fa-regular'} fa-heart text-sm"></i>
+                        </button>
+
+                        <!-- Quick View Button Overlay -->
+                        <div class="absolute inset-x-3 bottom-3 opacity-0 group-hover:opacity-100 transition-opacity flex gap-2">
+                            <button onclick="openQuickView(${p.id})" class="flex-1 py-2.5 rounded-xl bg-white/90 backdrop-blur-md text-softdark font-medium text-xs hover:bg-white transition-colors shadow-sm">
+                                Lihat Cepat
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Details -->
+                    <div class="space-y-2 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between text-xs mb-1">
+                                <span class="text-iris font-semibold">${p.color}</span>
+                                <div class="flex items-center gap-1 text-amber-500 font-medium">
+                                    <i class="fa-solid fa-star text-[10px]"></i>
+                                    <span>${p.rating}</span>
+                                </div>
+                            </div>
+                            <h3 class="font-display font-bold text-softdark text-lg group-hover:text-bubblegum transition-colors">${p.name}</h3>
+                            <p class="text-xs text-softgray line-clamp-2 mt-1">${p.description}</p>
+                        </div>
+
+                        <div class="pt-2 border-t border-wonderland/40 flex items-center justify-between">
+                            <span class="font-bold text-softdark text-sm">${formatIDR(p.price)}</span>
+                            <button onclick="quickAddToCart(${p.id})" class="px-4 py-2 rounded-full bg-wonderland/60 hover:bg-bubblegum hover:text-white text-softdark text-xs font-medium transition-colors">
+                                + Keranjang
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Toggle Wishlist
+        function toggleWishlist(id) {
+            if (wishlist.includes(id)) {
+                wishlist = wishlist.filter(item => item !== id);
+                showToast("Dihapus dari wishlist");
+            } else {
+                wishlist.push(id);
+                showToast("Ditambahkan ke wishlist");
+            }
+            renderProducts(products);
+        }
+
+        // Quick Add to Cart
+        function quickAddToCart(id) {
+            const product = products.find(p => p.id === id);
+            const defaultColor = product.colors[0];
+            
+            const existingIndex = cart.findIndex(item => item.id === id && item.color === defaultColor);
+            if (existingIndex > -1) {
+                cart[existingIndex].qty += 1;
+            } else {
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    color: defaultColor,
+                    image: product.image,
+                    qty: 1
+                });
+            }
+            updateCartBadge();
+            renderCartItems();
+            showToast(`${product.name} (${defaultColor}) masuk keranjang!`);
+        }
+
+        // Quick View Modal
+        let selectedModalColorState = null;
+
+        function openQuickView(id) {
+            const product = products.find(p => p.id === id);
+            selectedModalColorState = product.colors[0];
+            const modal = document.getElementById('quickview-modal');
+            const content = document.getElementById('quickview-content');
+
+            content.innerHTML = `
+                <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-seashell">
+                    <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover object-center" onerror="this.src='https://placehold.co/400x500/FBF3F1/2D2727?text=${encodeURIComponent(product.name)}'">
+                </div>
+                <div class="space-y-4">
+                    <div>
+                        <span class="text-xs uppercase tracking-wider text-iris font-semibold">${product.color}</span>
+                        <h3 class="font-display font-bold text-2xl text-softdark mt-1">${product.name}</h3>
+                        <div class="flex items-center gap-2 mt-2 text-xs text-amber-500 font-medium">
+                            <i class="fa-solid fa-star"></i>
+                            <span>${product.rating} (${product.reviews} ulasan)</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-softgray leading-relaxed">${product.description}</p>
+                    <div class="space-y-2">
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-softdark">Pilihan Warna:</label>
+                        <div id="modal-colors" class="flex flex-wrap gap-2">
+                            ${product.colors.map((c, i) => `
+                                <button onclick="selectModalColor('${c}')" class="color-option-btn px-3.5 py-1.5 rounded-full text-xs border ${i === 0 ? 'bg-softdark text-white border-softdark' : 'bg-white border-wonderland text-softdark'} transition-all">${c}</button>
+                            `).join('')}
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between pt-2">
+                        <span class="text-lg font-bold text-softdark">${formatIDR(product.price)}</span>
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs text-softgray">Jumlah:</span>
+                            <input type="number" id="modal-qty" value="1" min="1" max="10" class="w-14 px-2 py-1 text-center bg-white border border-wonderland rounded-lg text-xs font-semibold">
+                        </div>
+                    </div>
+                    <button onclick="addToCartFromModal(${product.id})" class="w-full py-3.5 rounded-full bg-bubblegum hover:bg-[#ff7d9e] text-white font-medium text-xs transition-all shadow-md shadow-bubblegum/20">
+                        Tambah ke Keranjang
+                    </button>
+                </div>
+            `;
+            modal.classList.remove('hidden');
+        }
+
+        function selectModalColor(color) {
+            selectedModalColorState = color;
+            const buttons = document.querySelectorAll('.color-option-btn');
+            buttons.forEach(btn => {
+                if (btn.innerText === color) {
+                    btn.className = "color-option-btn px-3.5 py-1.5 rounded-full text-xs border bg-softdark text-white border-softdark transition-all";
+                } else {
+                    btn.className = "color-option-btn px-3.5 py-1.5 rounded-full text-xs border bg-white border-wonderland text-softdark transition-all";
+                }
+            });
+        }
+
+        function closeQuickView() {
+            document.getElementById('quickview-modal').classList.add('hidden');
+            selectedModalColorState = null;
+        }
+
+        function addToCartFromModal(id) {
+            const product = products.find(p => p.id === id);
+            const color = selectedModalColorState || product.colors[0];
+            const qty = parseInt(document.getElementById('modal-qty').value) || 1;
+
+            const existingIndex = cart.findIndex(item => item.id === id && item.color === color);
+            if (existingIndex > -1) {
+                cart[existingIndex].qty += qty;
+            } else {
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    color: color,
+                    image: product.image,
+                    qty: qty
+                });
+            }
+            updateCartBadge();
+            renderCartItems();
+            closeQuickView();
+            toggleCart();
+            showToast(`${product.name} berhasil ditambahkan!`);
+        }
+
+        // Cart Drawer Control
+        function toggleCart() {
+            const modal = document.getElementById('cart-modal');
+            modal.classList.toggle('hidden');
+            renderCartItems();
+        }
+
+        function updateCartBadge() {
+            const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+            document.getElementById('cart-badge').innerText = totalCount;
+        }
+
+        function renderCartItems() {
+            const container = document.getElementById('cart-items');
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-16 space-y-3">
+                        <i class="fa-solid fa-bag-shopping text-4xl text-wonderland"></i>
+                        <p class="text-xs text-softgray">Keranjang belanja Anda masih kosong.</p>
+                    </div>
+                `;
+                document.getElementById('cart-subtotal').innerText = formatIDR(0);
+                document.getElementById('cart-total').innerText = formatIDR(15000);
+                return;
+            }
+
+            container.innerHTML = cart.map((item, index) => `
+                <div class="flex items-center gap-4 p-4 rounded-2xl bg-white border border-wonderland/50 shadow-sm">
+                    <img src="${item.image}" alt="${item.name}" class="w-16 h-16 rounded-xl object-cover" onerror="this.src='https://placehold.co/100x100/FBF3F1/2D2727?text=Hijab'">
+                    <div class="flex-1">
+                        <h4 class="font-display font-bold text-sm text-softdark">${item.name}</h4>
+                        <p class="text-[11px] text-softgray">Varian: <span class="font-medium text-softdark">${item.color}</span></p>
+                        <p class="text-xs font-bold text-softdark mt-1">${formatIDR(item.price)}</p>
+                    </div>
+                    <div class="flex flex-col items-end gap-2">
+                        <button onclick="removeFromCart(${index})" class="text-softgray hover:text-maraschino transition-colors text-xs" aria-label="Hapus item"><i class="fa-solid fa-trash-can"></i></button>
+                        <div class="flex items-center gap-2 bg-seashell rounded-lg px-2 py-1 border border-wonderland">
+                            <button onclick="updateQty(${index}, -1)" class="text-xs px-1 text-softdark hover:text-bubblegum">-</button>
+                            <span class="text-xs font-bold text-softdark">${item.qty}</span>
+                            <button onclick="updateQty(${index}, 1)" class="text-xs px-1 text-softdark hover:text-bubblegum">+</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            const shipping = subtotal > 0 ? 15000 : 0;
+            const total = subtotal + shipping;
+
+            document.getElementById('cart-subtotal').innerText = formatIDR(subtotal);
+            document.getElementById('cart-total').innerText = formatIDR(total);
+        }
+
+        function updateQty(index, change) {
+            cart[index].qty += change;
+            if (cart[index].qty <= 0) {
+                cart.splice(index, 1);
+            }
+            updateCartBadge();
+            renderCartItems();
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartBadge();
+            renderCartItems();
+            showToast("Item dihapus dari keranjang");
+        }
+
+        function proceedToCheckout() {
+            if (cart.length === 0) {
+                showToast("Keranjang belanja Anda kosong!");
+                return;
+            }
+            toggleCart();
+            showToast("Memproses ringkasan pesanan...");
+            setTimeout(() => {
+                alert("Terima kasih telah berbelanja di Zaki Collection! Simulasi checkout berhasil. Tim kami akan segera menghubungi Anda via WhatsApp untuk konfirmasi pesanan (0852-8324-6623).");
+                cart = [];
+                updateCartBadge();
+            }, 1000);
+        }
+
+        // Contact Form Submission
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('contact-name').value;
+            const email = document.getElementById('contact-email').value;
+            const message = document.getElementById('contact-message').value;
+
+            if (!name || !email || !message) return;
+
+            showToast("Pesan berhasil dikirim! Kami akan segera menghubungi Anda.");
+            document.getElementById('contact-form').reset();
+        }
+
+        // Toast Helper
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').innerText = message;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
